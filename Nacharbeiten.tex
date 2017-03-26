@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper,oneside,german]{article}
+\usepackage[utf8]{inputenc} 
+\title{Rechnernetze Nacharbeiten}
+\author{Sebastian Brückner}
+\renewcommand*\contentsname{Inhalt}
+
+%Sparche
+\usepackage[german]{babel} 
+
+%Versioning
+\usepackage[owncaptions]{vhistory}
+
+%Fußzeile
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+\fancyfoot[R]{\thepage} %Seitennummer
+\fancyfoot[C]{v.\vhCurrentVersion~vom \vhCurrentDate} %Seitennummer
+
+\begin{document}
+\maketitle
+
+%Aktuelle Version Eintragen
+\begin{versionhistory}
+	\vhEntry{0.1}{26.03.14}{Sebastian Brückner}{Arten von Rechnernetzen}
+\end{versionhistory}
+
+\newpage
+\tableofcontents
+\section{Arten von Rechnernetzen (Aufgaben)}	
+	\subsection{Lastverbund}
+		\textbf{Ziel:} Alle verbundenen Rechner sollen nach Möglichkeit voll ausgelastet werden. \\\\
+		Die Aufgaben die an der Rechnerverbund gestellt werden, 
+		werden gleichmäßig an alle Rechner verteilt, 
+		um so eine maximal Ressourcen Auslastung bzw. gleichmäßige Auslastung der verbundenen Rechner zu erreichen. \cite{Lastv} \\
+		\textbf{Beispiel:} Das Rechnernetz besteht aus den Computern X und Y. Diese erhalten die Aufgaben A1, A2, A3, A4.
+		Diese werden nun auf die Rechner aufgeteilt. So könnte X die Aufgaben A1 und A4 erhalten, während Y A2 und A3 erhält.
+
+	\subsection{Leistungsverbund}
+		\textbf{Ziel:} Mehr Leistung zum abarbeiten von Aufgaben \\\\
+		Die Aufgaben werden parallelisiert und so an alle Rechner im Netzwerk verteilt (ähnlich wie ein Multiprozessorsystem).
+		Rechner mit verschiedenen Funktionalitäten (Rechner mit Vorteilen beim bearbeiten eines Teilproblems) können zu einer virtuellen Universalmaschine verbunden werden. \cite{Leistungsv}\\
+		\textbf{Beispiel:} Das Rechnernetz besteht aus den Computern X und Y. Diese erhalten die Aufgaben A.
+		A wird nun in die Teilaufgabe AT1 und AT2 geteilt. X bearbeitet Teilproblem AT1 und Y bearbeitet AT2.
+
+	\subsection{Verfügbarkeitsverbund}
+		\textbf{Ziel:} Hohe Verfügbarkeit, Betriebssicherheit und geringe Ausfallzeit (Hochverfügbarkeit). \\\\
+		Durch Redundanzen (Systemdopplung) werden Rechner so verbunden, das der Ausfall einzelner Rechner/Komponenten nicht den Ausfall des ganzen Systems nach sich zieht. \cite{Verfuegbarkeitsv}\\
+		\textbf{Beispiel:} Das Rechnernetz besteht aus den identischen Computern X und Y. Diese erhalten die Aufgaben A.
+		Der Rechner X fällt aus. Y kann die Aufgabe A immer noch alleine bearbeiten, da er die gleichen Funktionalitäten bietet wie X.
+	
+	\subsection{Funktionsverbund}
+		\textbf{Ziel:} Bereitstellen spezieller Funktionen im Netzwerk\\\\
+		Bestimmte Rechner bieten spezielle Funktionen, die andere nicht haben.
+		Damit alle Rechner im Netzwerk diese Funktionen nutzen können, werden sie zu einem Funktionsverbund vernetzt.\cite{Funktionsv}\\
+		\textbf{Beispiel:} Das Rechnernetz besteht aus den Computern X und Y. Y bearbeitet die Aufgabe A.
+		Zum Lösen der Aufgabe wird eine bestimmte Funktionalität benötigt die Y nicht hat, diese stellt X im Netz bereit.
+	\subsection{Datenverbund}
+		\textbf{Ziel:} Bereitstellen von Daten \\\\
+		Daten können geographisch von einander getrennt sein. (Um z.B. unnötig weite Transporte über ein Netzwerk zu vermeiden).
+		Der Datenverbund Koppelt diese voneinander getrennten Daten logisch, sodass keine Dateninkonsistens entstehen kann.\\
+		\textbf{Beispiel:} Datenbanken
+		
+
+
+\begin{thebibliography}{}
+	\bibitem{Lastv} http://www.itwissen.info/Lastverbund-load-compound.html
+	\bibitem{Leistungsv} http://www.itwissen.info/Leistungsverbund-line-compound.html
+	\bibitem{Verfuegbarkeitsv} http://www.itwissen.info/Verfuegbarkeitsverbund-high-availability-distributed-system.html
+	\bibitem{Funktionsv}  http://www.itwissen.info/Funktionsverbund-function-sharing.html
+	\bibitem{Datenv.} http://www.itwissen.info/Datenverbund-data-interconnection.html
+\end{thebibliography}
+
+\end{document}
